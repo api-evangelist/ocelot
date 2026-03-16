@@ -1,0 +1,30 @@
+aid: ocelot
+name: Ocelot
+description: >-
+  Ocelot is an open-source API Gateway built with .NET for microservices
+  architectures. It provides routing, authentication, rate limiting, load
+  balancing, and service discovery features for managing and securing APIs
+  in .NET ecosystems.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - API Gateway
+  - .NET
+  - Microservices
+  - Open Source
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/ocelot/refs/heads/main/apis.yml
+created: '2026-03-16'
+modified: '2026-03-16'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://ocelot.readthedocs.io/
+  - type: Documentation
+    url: https://ocelot.readthedocs.io/en/latest/
+  - type: GitHub Organization
+    url: https://github.com/ThreeMammals/Ocelot
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
