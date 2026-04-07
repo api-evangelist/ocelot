@@ -8,8 +8,8 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - API Gateway
   - .NET
+  - API Gateway
   - Microservices
   - Open Source
 url: >-
@@ -28,10 +28,10 @@ apis:
     humanURL: https://ocelot.readthedocs.io/en/latest/
     baseURL: https://ocelot.readthedocs.io/
     tags:
-      - API Gateway
-      - Routing
       - .NET
+      - API Gateway
       - Microservices
+      - Routing
     properties:
       - type: Documentation
         url: https://ocelot.readthedocs.io/en/latest/
@@ -54,10 +54,10 @@ apis:
     humanURL: https://ocelot.readthedocs.io/en/latest/features/administration.html
     baseURL: https://ocelot.readthedocs.io/
     tags:
+      - .NET
       - Administration
       - Configuration
       - Management
-      - .NET
     properties:
       - type: Documentation
         url: https://ocelot.readthedocs.io/en/latest/features/administration.html
