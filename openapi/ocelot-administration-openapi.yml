@@ -1,0 +1,171 @@
+openapi: 3.0.3
+info:
+  title: Ocelot Administration API
+  description: >-
+    The Ocelot Administration API allows runtime changes to the Ocelot
+    .NET API Gateway configuration via an authenticated HTTP API. It
+    supports retrieving and overwriting the active configuration and
+    clearing output cache regions without restarting the gateway. The
+    API is authenticated via Bearer tokens issued by Ocelot's built-in
+    IdentityServer or an external identity provider.
+  version: 1.0.0
+  contact:
+    name: Ocelot
+    url: https://ocelot.readthedocs.io/
+  license:
+    name: MIT
+    url: https://github.com/ThreeMammals/Ocelot/blob/develop/LICENSE.md
+servers:
+  - url: http://localhost:5000
+    description: Local Ocelot gateway with administration enabled
+    variables: {}
+security:
+  - bearerAuth: []
+tags:
+  - name: Authentication
+    description: Obtain access tokens for the Administration API
+  - name: Configuration
+    description: Read and update the active gateway configuration
+  - name: Cache
+    description: Clear output cache regions
+paths:
+  /administration/connect/token:
+    post:
+      tags:
+        - Authentication
+      summary: Issue an admin access token
+      description: >-
+        Issues an OAuth 2.0 access token using the client credentials
+        flow. The returned bearer token must be supplied to subsequent
+        Administration API calls.
+      operationId: issueAdminToken
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+                - client_id
+                - client_secret
+                - scope
+                - grant_type
+              properties:
+                client_id:
+                  type: string
+                  example: admin
+                client_secret:
+                  type: string
+                scope:
+                  type: string
+                  example: admin
+                grant_type:
+                  type: string
+                  example: client_credentials
+      responses:
+        '200':
+          description: Access token issued
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '400':
+          description: Invalid token request
+  /administration/configuration:
+    get:
+      tags:
+        - Configuration
+      summary: Get current Ocelot configuration
+      description: >-
+        Returns the active Ocelot file configuration in the same JSON
+        shape used to bootstrap the gateway.
+      operationId: getConfiguration
+      responses:
+        '200':
+          description: Current configuration
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileConfiguration'
+        '401':
+          description: Unauthorized
+    post:
+      tags:
+        - Configuration
+      summary: Overwrite Ocelot configuration
+      description: >-
+        Replaces the active Ocelot configuration with the supplied
+        FileConfiguration document. The Ocelot process must have write
+        permissions for the configuration file on disk.
+      operationId: setConfiguration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileConfiguration'
+      responses:
+        '200':
+          description: Configuration replaced
+        '400':
+          description: Invalid configuration document
+        '401':
+          description: Unauthorized
+  /administration/outputcache/{region}:
+    delete:
+      tags:
+        - Cache
+      summary: Clear an output cache region
+      description: >-
+        Clears the specified output cache region. When a backplane is
+        configured, all gateway instances clear the region.
+      operationId: clearCacheRegion
+      parameters:
+        - name: region
+          in: path
+          required: true
+          description: Cache region name as configured in FileCacheOptions
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Cache region cleared
+        '401':
+          description: Unauthorized
+        '404':
+          description: Region not found
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    TokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        expires_in:
+          type: integer
+          format: int32
+        token_type:
+          type: string
+          example: Bearer
+        scope:
+          type: string
+    FileConfiguration:
+      type: object
+      description: Ocelot file configuration document
+      properties:
+        Routes:
+          type: array
+          items:
+            type: object
+        GlobalConfiguration:
+          type: object
+        Aggregates:
+          type: array
+          items:
+            type: object

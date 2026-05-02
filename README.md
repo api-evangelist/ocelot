@@ -16,7 +16,7 @@ Ocelot is an open-source API Gateway built with .NET for microservices architect
 ## Timestamps
 
 - **Created:** 2026-03-16 
-- **Modified:** 2026-03-18 
+- **Modified:** 2026-04-28 
 
 ## APIs
 
@@ -53,6 +53,7 @@ The Ocelot Administration API allows runtime changes to gateway configuration vi
 - [Documentation](https://ocelot.readthedocs.io/en/latest/features/administration.html)
 - [Authentication](https://ocelot.readthedocs.io/en/latest/features/authentication.html)
 - [GitHubRepository](https://github.com/ThreeMammals/Ocelot)
+- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/ocelot/refs/heads/main/openapi/ocelot-administration-openapi.yml)
 
 ## Common Properties
 

@@ -15,7 +15,7 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/ocelot/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-03-18'
+modified: '2026-04-28'
 specificationVersion: '0.19'
 apis:
   - aid: ocelot:ocelot-gateway
@@ -65,6 +65,8 @@ apis:
         url: https://ocelot.readthedocs.io/en/latest/features/authentication.html
       - type: GitHubRepository
         url: https://github.com/ThreeMammals/Ocelot
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/ocelot/refs/heads/main/openapi/ocelot-administration-openapi.yml
 common:
   - type: Website
     url: https://ocelot.readthedocs.io/
