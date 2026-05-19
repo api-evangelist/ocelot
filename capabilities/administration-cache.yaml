@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Ocelot Administration API — Cache
+  description: 'Ocelot Administration API — Cache. 1 operations. Lead operation: Clear an output cache region. Self-contained
+    Naftiko capability covering one Ocelot business surface.'
+  tags:
+  - Ocelot
+  - Cache
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    OCELOT_API_KEY: OCELOT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: administration-cache
+    baseUri: http://localhost:5000
+    description: Ocelot Administration API — Cache business capability. Self-contained, no shared references.
+    resources:
+    - name: administration-outputcache-region
+      path: /administration/outputcache/{region}
+      operations:
+      - name: clearcacheregion
+        method: DELETE
+        description: Clear an output cache region
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: region
+          in: path
+          type: string
+          description: Cache region name as configured in FileCacheOptions
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.OCELOT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: administration-cache-rest
+    port: 8080
+    description: REST adapter for Ocelot Administration API — Cache. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/administration/outputcache/{region}
+      name: administration-outputcache-region
+      description: REST surface for administration-outputcache-region.
+      operations:
+      - method: DELETE
+        name: clearcacheregion
+        description: Clear an output cache region
+        call: administration-cache.clearcacheregion
+        with:
+          region: rest.region
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: administration-cache-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Ocelot Administration API — Cache. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: clear-output-cache-region
+      description: Clear an output cache region
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: administration-cache.clearcacheregion
+      with:
+        region: tools.region
+      outputParameters:
+      - type: object
+        mapping: $.

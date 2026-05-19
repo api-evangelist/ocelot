@@ -1,0 +1,105 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Ocelot Administration API — Configuration
+  description: 'Ocelot Administration API — Configuration. 2 operations. Lead operation: Get current Ocelot configuration.
+    Self-contained Naftiko capability covering one Ocelot business surface.'
+  tags:
+  - Ocelot
+  - Configuration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    OCELOT_API_KEY: OCELOT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: administration-configuration
+    baseUri: http://localhost:5000
+    description: Ocelot Administration API — Configuration business capability. Self-contained, no shared references.
+    resources:
+    - name: administration-configuration
+      path: /administration/configuration
+      operations:
+      - name: getconfiguration
+        method: GET
+        description: Get current Ocelot configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: setconfiguration
+        method: POST
+        description: Overwrite Ocelot configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.OCELOT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: administration-configuration-rest
+    port: 8080
+    description: REST adapter for Ocelot Administration API — Configuration. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/administration/configuration
+      name: administration-configuration
+      description: REST surface for administration-configuration.
+      operations:
+      - method: GET
+        name: getconfiguration
+        description: Get current Ocelot configuration
+        call: administration-configuration.getconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: setconfiguration
+        description: Overwrite Ocelot configuration
+        call: administration-configuration.setconfiguration
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: administration-configuration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Ocelot Administration API — Configuration. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: get-current-ocelot-configuration
+      description: Get current Ocelot configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: administration-configuration.getconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: overwrite-ocelot-configuration
+      description: Overwrite Ocelot configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: administration-configuration.setconfiguration
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
