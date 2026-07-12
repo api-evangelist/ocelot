@@ -64,6 +64,10 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/ocelot/refs/heads/main/openapi/ocelot-administration-openapi.yml
 common:
+  - type: DomainSecurity
+    url: security/ocelot-domain-security.yml
+  - type: Authentication
+    url: authentication/ocelot-authentication.yml
   - type: Website
     url: https://ocelot.readthedocs.io/
   - type: Documentation
