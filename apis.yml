@@ -64,6 +64,8 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/ocelot/refs/heads/main/openapi/ocelot-administration-openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/ocelot-agentic-access.yml
   - type: DomainSecurity
     url: security/ocelot-domain-security.yml
   - type: Authentication
