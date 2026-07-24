@@ -1,0 +1,48 @@
+openapi: 3.0.3
+info:
+  title: Ocelot Administration Authentication Cache API
+  description: The Ocelot Administration API allows runtime changes to the Ocelot .NET API Gateway configuration via an authenticated HTTP API. It supports retrieving and overwriting the active configuration and clearing output cache regions without restarting the gateway. The API is authenticated via Bearer tokens issued by Ocelot's built-in IdentityServer or an external identity provider.
+  version: 1.0.0
+  contact:
+    name: Ocelot
+    url: https://ocelot.readthedocs.io/
+  license:
+    name: MIT
+    url: https://github.com/ThreeMammals/Ocelot/blob/develop/LICENSE.md
+servers:
+- url: http://localhost:5000
+  description: Local Ocelot gateway with administration enabled
+  variables: {}
+security:
+- bearerAuth: []
+tags:
+- name: Cache
+  description: Clear output cache regions
+paths:
+  /administration/outputcache/{region}:
+    delete:
+      tags:
+      - Cache
+      summary: Clear an output cache region
+      description: Clears the specified output cache region. When a backplane is configured, all gateway instances clear the region.
+      operationId: clearCacheRegion
+      parameters:
+      - name: region
+        in: path
+        required: true
+        description: Cache region name as configured in FileCacheOptions
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Cache region cleared
+        '401':
+          description: Unauthorized
+        '404':
+          description: Region not found
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

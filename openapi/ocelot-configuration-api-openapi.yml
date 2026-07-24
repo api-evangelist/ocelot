@@ -1,0 +1,77 @@
+openapi: 3.0.3
+info:
+  title: Ocelot Administration Authentication Configuration API
+  description: The Ocelot Administration API allows runtime changes to the Ocelot .NET API Gateway configuration via an authenticated HTTP API. It supports retrieving and overwriting the active configuration and clearing output cache regions without restarting the gateway. The API is authenticated via Bearer tokens issued by Ocelot's built-in IdentityServer or an external identity provider.
+  version: 1.0.0
+  contact:
+    name: Ocelot
+    url: https://ocelot.readthedocs.io/
+  license:
+    name: MIT
+    url: https://github.com/ThreeMammals/Ocelot/blob/develop/LICENSE.md
+servers:
+- url: http://localhost:5000
+  description: Local Ocelot gateway with administration enabled
+  variables: {}
+security:
+- bearerAuth: []
+tags:
+- name: Configuration
+  description: Read and update the active gateway configuration
+paths:
+  /administration/configuration:
+    get:
+      tags:
+      - Configuration
+      summary: Get current Ocelot configuration
+      description: Returns the active Ocelot file configuration in the same JSON shape used to bootstrap the gateway.
+      operationId: getConfiguration
+      responses:
+        '200':
+          description: Current configuration
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileConfiguration'
+        '401':
+          description: Unauthorized
+    post:
+      tags:
+      - Configuration
+      summary: Overwrite Ocelot configuration
+      description: Replaces the active Ocelot configuration with the supplied FileConfiguration document. The Ocelot process must have write permissions for the configuration file on disk.
+      operationId: setConfiguration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileConfiguration'
+      responses:
+        '200':
+          description: Configuration replaced
+        '400':
+          description: Invalid configuration document
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    FileConfiguration:
+      type: object
+      description: Ocelot file configuration document
+      properties:
+        Routes:
+          type: array
+          items:
+            type: object
+        GlobalConfiguration:
+          type: object
+        Aggregates:
+          type: array
+          items:
+            type: object
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
