@@ -1,0 +1,18 @@
+{
+  "provider": "ocelot",
+  "sources": [
+    "ocelot-authentication-api-openapi.yml",
+    "ocelot-cache-api-openapi.yml",
+    "ocelot-configuration-api-openapi.yml"
+  ],
+  "outputs": [
+    "ocelot-authentication-api-openapi.yml",
+    "ocelot-cache-api-openapi.yml",
+    "ocelot-configuration-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
