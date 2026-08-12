@@ -102,6 +102,9 @@ apis:
   - type: GitHubRepository
     url: https://github.com/ThreeMammals/Ocelot
 common:
+  - type: License
+    name: MIT
+    url: https://github.com/ThreeMammals/Ocelot/blob/develop/LICENSE
   - type: AgenticAccess
     url: agentic-access/ocelot-agentic-access.yml
   - type: DomainSecurity
