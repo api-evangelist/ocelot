@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ocelot Administration Authentication Configuration API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Configuration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get current Ocelot configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:5000/administration/configuration"
+          },
+          "docs": "Returns the active Ocelot file configuration in the same JSON shape used to bootstrap the gateway."
+        },
+        {
+          "info": {
+            "name": "Overwrite Ocelot configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:5000/administration/configuration",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces the active Ocelot configuration with the supplied FileConfiguration document. The Ocelot process must have write permissions for the configuration file on disk."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

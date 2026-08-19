@@ -1,0 +1,227 @@
+{
+  "item": [
+    {
+      "id": "24c5acb5-f809-43f9-8a41-429127150d21",
+      "name": "Cache",
+      "description": {
+        "content": "Clear output cache regions",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "366e4e4f-658d-49b2-bec8-683f782163b9",
+          "name": "Clear an output cache region",
+          "request": {
+            "name": "Clear an output cache region",
+            "description": {
+              "content": "Clears the specified output cache region. When a backplane is configured, all gateway instances clear the region.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "administration",
+                "outputcache",
+                ":region"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "region",
+                  "description": "(Required) Cache region name as configured in FileCacheOptions"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c600ef68-157e-46b0-8b33-4e185f575a65",
+              "name": "Cache region cleared",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "administration",
+                    "outputcache",
+                    ":region"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "region",
+                      "description": "(Required) Cache region name as configured in FileCacheOptions"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7402caa8-f944-4bb5-b02f-5b6cec306a0b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "administration",
+                    "outputcache",
+                    ":region"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "region",
+                      "description": "(Required) Cache region name as configured in FileCacheOptions"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a181a2a0-3ee1-41be-98df-497ea97e5baa",
+              "name": "Region not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "administration",
+                    "outputcache",
+                    ":region"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "region",
+                      "description": "(Required) Cache region name as configured in FileCacheOptions"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:5000",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1e89c372-7300-486e-b42c-68d6a9368015",
+    "name": "Ocelot Administration Authentication Cache API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ocelot Administration API allows runtime changes to the Ocelot .NET API Gateway configuration via an authenticated HTTP API. It supports retrieving and overwriting the active configuration and clearing output cache regions without restarting the gateway. The API is authenticated via Bearer tokens issued by Ocelot's built-in IdentityServer or an external identity provider.\n\nContact Support:\n Name: Ocelot",
+      "type": "text/plain"
+    }
+  }
+}

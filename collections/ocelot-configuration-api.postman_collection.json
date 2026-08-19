@@ -1,0 +1,350 @@
+{
+  "item": [
+    {
+      "id": "45cea625-acca-4b65-b5dd-37cc3eab4c3e",
+      "name": "Configuration",
+      "description": {
+        "content": "Read and update the active gateway configuration",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "70271221-18a7-4a20-9114-b9c313968832",
+          "name": "Get current Ocelot configuration",
+          "request": {
+            "name": "Get current Ocelot configuration",
+            "description": {
+              "content": "Returns the active Ocelot file configuration in the same JSON shape used to bootstrap the gateway.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "administration",
+                "configuration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "28aad77c-961c-4f8c-b87e-c358a0bb234e",
+              "name": "Current configuration",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "administration",
+                    "configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"GlobalConfiguration\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eaf76ce2-871e-4c6a-a5f8-8e4adf7f16fa",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "administration",
+                    "configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5fb6f253-ee88-4082-8fc9-9d3e60dc1a04",
+          "name": "Overwrite Ocelot configuration",
+          "request": {
+            "name": "Overwrite Ocelot configuration",
+            "description": {
+              "content": "Replaces the active Ocelot configuration with the supplied FileConfiguration document. The Ocelot process must have write permissions for the configuration file on disk.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "administration",
+                "configuration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Routes\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"GlobalConfiguration\": \"<object>\",\n  \"Aggregates\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ee05f2b1-e0c7-46db-abbd-2c4c5c4ca8d4",
+              "name": "Configuration replaced",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "administration",
+                    "configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Routes\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"GlobalConfiguration\": \"<object>\",\n  \"Aggregates\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cc29a565-d3cb-44f2-a25b-d023f4819230",
+              "name": "Invalid configuration document",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "administration",
+                    "configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Routes\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"GlobalConfiguration\": \"<object>\",\n  \"Aggregates\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1842bf82-7c09-4b3e-9cc4-0d530a516774",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "administration",
+                    "configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Routes\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"GlobalConfiguration\": \"<object>\",\n  \"Aggregates\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:5000",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "124a0fa0-5ff2-4a7d-bdfe-8f0b7c205625",
+    "name": "Ocelot Administration Authentication Configuration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ocelot Administration API allows runtime changes to the Ocelot .NET API Gateway configuration via an authenticated HTTP API. It supports retrieving and overwriting the active configuration and clearing output cache regions without restarting the gateway. The API is authenticated via Bearer tokens issued by Ocelot's built-in IdentityServer or an external identity provider.\n\nContact Support:\n Name: Ocelot",
+      "type": "text/plain"
+    }
+  }
+}
