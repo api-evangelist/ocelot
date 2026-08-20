@@ -23,6 +23,11 @@ tags:
   - .NET
   - API Gateway
   - Microservices
+  - Open-Source
+tags_raw:
+  - .NET
+  - API Gateway
+  - Microservices
   - Open Source
 url: https://raw.githubusercontent.com/api-evangelist/ocelot/refs/heads/main/apis.yml
 created: '2026-03-16'
