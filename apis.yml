@@ -5,6 +5,19 @@ description: >-
   authentication, rate limiting, load balancing, and service discovery features for managing and securing APIs in .NET
   ecosystems.
 type: Index
+deliveryModel:
+  model: self-hosted
+  license: MIT
+  open_source: true
+  commercial: false
+  callable_host: false
+  label: Self-hosted open source · you run it yourself
+  confidence: high
+  source:
+  - license
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -107,6 +120,12 @@ apis:
   - type: GitHubRepository
     url: https://github.com/ThreeMammals/Ocelot
 common:
+  - type: IssueTracker
+    url: https://github.com/ThreeMammals/Ocelot/issues
+  - type: CodeOfConduct
+    url: https://github.com/ThreeMammals/Ocelot/blob/develop/.github/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/ThreeMammals/Ocelot/blob/develop/.github/CONTRIBUTING.md
   - type: License
     name: MIT
     url: https://github.com/ThreeMammals/Ocelot/blob/develop/LICENSE
