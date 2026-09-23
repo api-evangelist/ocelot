@@ -1,9 +1,7 @@
 {
   "provider": "ocelot",
   "sources": [
-    "ocelot-authentication-api-openapi.yml",
-    "ocelot-cache-api-openapi.yml",
-    "ocelot-configuration-api-openapi.yml"
+    "_original/ocelot-administration-openapi.yml"
   ],
   "outputs": [
     "ocelot-authentication-api-openapi.yml",
@@ -13,6 +11,14 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "ocelot-administration-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "ocelot-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ocelot-cache-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "ocelot-configuration-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

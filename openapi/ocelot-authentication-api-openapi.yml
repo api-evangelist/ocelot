@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Ocelot Administration Authentication API
   description: The Ocelot Administration API allows runtime changes to the Ocelot .NET API Gateway configuration via an authenticated HTTP API. It supports retrieving and overwriting the active configuration and clearing output cache regions without restarting the gateway. The API is authenticated via Bearer tokens issued by Ocelot's built-in IdentityServer or an external identity provider.
