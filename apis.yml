@@ -37,12 +37,13 @@ tags:
   - .NET
   - API Gateway
   - Microservices
-  - Open-Source
+  - Open Source
 tags_raw:
   - .NET
   - API Gateway
   - Microservices
   - Open Source
+  - Open-Source
 url: https://raw.githubusercontent.com/api-evangelist/ocelot/refs/heads/main/apis.yml
 created: '2026-03-16'
 modified: '2026-05-19'
@@ -55,7 +56,6 @@ apis:
     limiting, load balancing, caching, and service discovery for microservices architectures. It is configured
     via JSON files and integrates with ASP.NET Core middleware pipelines.
   humanURL: https://ocelot.readthedocs.io/en/latest/
-  baseURL: https://ocelot.readthedocs.io/
   tags:
   - .NET
   - API Gateway
@@ -76,7 +76,6 @@ apis:
   name: Ocelot Authentication API
   description: Obtain access tokens for the Administration API
   humanURL: https://ocelot.readthedocs.io/en/latest/
-  baseURL: https://ocelot.readthedocs.io/
   tags:
   - Authentication
   properties:
@@ -92,7 +91,6 @@ apis:
   name: Ocelot Cache API
   description: Clear output cache regions
   humanURL: https://ocelot.readthedocs.io/en/latest/
-  baseURL: https://ocelot.readthedocs.io/
   tags:
   - Cache
   properties:
@@ -108,7 +106,6 @@ apis:
   name: Ocelot Configuration API
   description: Read and update the active gateway configuration
   humanURL: https://ocelot.readthedocs.io/en/latest/
-  baseURL: https://ocelot.readthedocs.io/
   tags:
   - Configuration
   properties:
