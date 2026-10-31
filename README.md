@@ -1,4 +1,4 @@
-# Ocelot (ocelot)
+# Ocelot
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,86 +66,122 @@
 
 Ocelot is an open-source API Gateway built with .NET for microservices architectures. It provides routing, authentication, rate limiting, load balancing, and service discovery features for managing and securing APIs in .NET ecosystems.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/ocelot/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/ocelot/refs/heads/main/apis.yml)
+**Areas:** .NET · API Gateway · Microservices · Open Source
 
-## Scope
+## Ocelot on APIs.io
 
-- **Type:** Index
+Everything profiled for Ocelot is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ocelot/](https://apis.io/providers/ocelot/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- .NET
-- API Gateway
-- Microservices
-- Open Source
+- [Ocelot API Gateway](https://apis.io/apis/ocelot/ocelot-gateway/) — Ocelot is an open-source .NET API Gateway that provides routing, authentication, authorization, rate limiting, load balancing, caching, and service…
+- [Ocelot Authentication API](https://apis.io/apis/ocelot/ocelot-authentication-api/) — Obtain access tokens for the Administration API
+- [Ocelot Cache API](https://apis.io/apis/ocelot/ocelot-cache-api/) — Clear output cache regions
+- [Ocelot Configuration API](https://apis.io/apis/ocelot/ocelot-configuration-api/) — Read and update the active gateway configuration
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Ocelot API Gateway
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Ocelot is an open-source .NET API Gateway that provides routing, authentication, authorization, rate limiting, load balancing, caching, and service discovery for microservices architectures. It is configured via JSON files and integrates with ASP.NET Core middleware pipelines.
+- [Ocelot Agentic Access](https://apis.io/agentic-access/ocelot/ocelot-agentic-access/)
 
-- **Human URL:** [https://ocelot.readthedocs.io/en/latest/](https://ocelot.readthedocs.io/en/latest/)
-- **Base URL:** `https://ocelot.readthedocs.io/`
+#### Collections (4)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- .NET
-- API Gateway
-- Microservices
-- Routing
+- [Ocelot Administration API](https://apis.io/collections/ocelot/open-ocelot-administration/)
+- [Ocelot Administration Authentication API](https://apis.io/collections/ocelot/open-ocelot-authentication-api/)
+- [Ocelot Administration Authentication Cache API](https://apis.io/collections/ocelot/open-ocelot-cache-api/)
+- [Ocelot Administration Authentication Configuration API](https://apis.io/collections/ocelot/open-ocelot-configuration-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://ocelot.readthedocs.io/en/latest/)
-- [Getting Started](https://ocelot.readthedocs.io/en/latest/introduction/gettingstarted.html)
-- [Reference](https://ocelot.readthedocs.io/en/latest/features/configuration.html)
-- [Authentication](https://ocelot.readthedocs.io/en/latest/features/authentication.html)
-- [GitHub Repository](https://github.com/ThreeMammals/Ocelot)
-- [Postman Collection](collections/ocelot-administration.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ocelot-administration.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-### Ocelot Administration API
+- [Ocelot Authentication](https://apis.io/security/ocelot/ocelot-authentication/)
+- [Ocelot Domain Security](https://apis.io/security/ocelot/ocelot-domain-security/)
 
-The Ocelot Administration API allows runtime changes to gateway configuration via an authenticated HTTP API. It supports updating routes and clearing cache regions without restarting the gateway, and is authenticated using Bearer tokens issued by Ocelot's built-in IdentityServer or an external identity provider.
+#### Plans and pricing (1)
 
-- **Human URL:** [https://ocelot.readthedocs.io/en/latest/features/administration.html](https://ocelot.readthedocs.io/en/latest/features/administration.html)
-- **Base URL:** `https://ocelot.readthedocs.io/`
+Published plans, tiers and prices.
 
-#### Tags
+- [Ocelot Plans Pricing](https://apis.io/plans/ocelot/ocelot-plans-pricing/)
 
-- .NET
-- Administration
-- Configuration
-- Management
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [Documentation](https://ocelot.readthedocs.io/en/latest/features/administration.html)
-- [Authentication](https://ocelot.readthedocs.io/en/latest/features/authentication.html)
-- [GitHub Repository](https://github.com/ThreeMammals/Ocelot)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/ocelot/refs/heads/main/openapi/ocelot-administration-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/ocelot-administration.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/ocelot-administration.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Ocelot Rate Limits](https://apis.io/rate-limits/ocelot/ocelot-rate-limits/)
 
-## Common Properties
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Ocelot Finops](https://apis.io/finops/ocelot/ocelot-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://ocelot.readthedocs.io/)
 - [Documentation](https://ocelot.readthedocs.io/en/latest/)
-- [Getting Started](https://ocelot.readthedocs.io/en/latest/introduction/gettingstarted.html)
+- [Getting started](https://ocelot.readthedocs.io/en/latest/introduction/gettingstarted.html)
 - [Changelog](https://github.com/ThreeMammals/Ocelot/releases)
-- [GitHub Organization](https://github.com/ThreeMammals/Ocelot)
-- [GitHub Repository](https://github.com/ThreeMammals/Ocelot)
-- [Community](https://github.com/ThreeMammals/Ocelot/discussions)
-- [Issue  Tracker](https://github.com/ThreeMammals/Ocelot/issues)
-- [S D Ks](https://www.nuget.org/packages/Ocelot)
+- [GitHub](https://github.com/ThreeMammals/Ocelot)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 33.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 46.1 |
+| Contract governance | 0.0 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 50.0 |
+| Access clarity | 7.9 |
+
+**Agent readiness 20.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/ocelot/](https://apis.io/providers/ocelot/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Ocelot: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ocelot/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
